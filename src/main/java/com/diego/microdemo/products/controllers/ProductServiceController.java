@@ -33,7 +33,7 @@ public class ProductServiceController {
 
 	@RequestMapping(value = "/{productId}", method = RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable("productId") String productId) {
-		logger.debug("Looking up data for prod {}", productId);
+		logger.debug("Looking up data for prod: {}", productId);
 
 		Optional<Product> org = prodService.getProduct(productId);
 		if (org.isPresent()) {
