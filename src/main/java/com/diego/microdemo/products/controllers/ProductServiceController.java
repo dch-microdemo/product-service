@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,12 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diego.microdemo.products.model.Product;
 import com.diego.microdemo.products.services.ProductService;
 
+/**
+ * @author Diego Chavez
+ *
+ */
 @RestController
 @RequestMapping(value = "products", produces = "application/json")
 @CrossOrigin(origins = "*")
 public class ProductServiceController {
-	@Autowired
-	private ProductService prodService;
+
+	private final ProductService prodService;
+
+	/**
+	 * @param prodService
+	 */
+	public ProductServiceController(ProductService prodService) {
+		this.prodService = prodService;
+	}
+
 	private static final Logger logger = LoggerFactory.getLogger(ProductServiceController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

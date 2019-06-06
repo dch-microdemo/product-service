@@ -2,16 +2,25 @@ package com.diego.microdemo.products.services;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.diego.microdemo.products.model.Product;
 import com.diego.microdemo.products.repository.ProductRepository;
 
+/**
+ * @author Diego Chavez
+ *
+ */
 @Service
 public class ProductService {
-	@Autowired
-	private ProductRepository prodRepository;
+	/**
+	 * @param prodRepository
+	 */
+	public ProductService(ProductRepository prodRepository) {
+		this.prodRepository = prodRepository;
+	}
+
+	private final ProductRepository prodRepository;
 
 	public Iterable<Product> findAll() {
 		return prodRepository.findAll();

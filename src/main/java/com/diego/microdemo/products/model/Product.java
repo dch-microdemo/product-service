@@ -9,6 +9,10 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+/**
+ * @author Diego Chavez
+ *
+ */
 @Data
 @Entity
 @Table(name = "products")
