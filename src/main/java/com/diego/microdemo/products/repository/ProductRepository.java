@@ -10,6 +10,6 @@ import com.diego.microdemo.products.model.Product;
  *
  */
 @Repository
-public interface ProductRepository extends CrudRepository<Product,String>  {
+public interface ProductRepository extends CrudRepository<Product,Long>  {
 
 }

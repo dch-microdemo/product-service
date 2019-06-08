@@ -27,7 +27,7 @@ public class ProductService {
 	}
 
 	public Optional<Product> getProduct(String productId) {
-		return prodRepository.findById(productId);
+		return prodRepository.findById(Long.valueOf(productId));
 	}
 
 	public void saveProduct(Product prod) {
@@ -40,6 +40,6 @@ public class ProductService {
 	}
 
 	public void deleteProduct(String prodId) {
-		prodRepository.deleteById(prodId);
+		prodRepository.deleteById(Long.valueOf(prodId));
 	}
 }
