@@ -4,6 +4,10 @@ git remote add origin https://github.com/dch-microdemo/organization-service.git
 git add .
 git commit -m "Primera Subida"
 git push -u origin master
+Ejecucion de tests con Jacoco:
+mvn clean test
+Ejecucion de Sonar:
+mvn sonar:sonar
 ### Reference Documentation
 For further reference, please consider the following sections:
 
