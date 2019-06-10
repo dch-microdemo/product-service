@@ -26,20 +26,20 @@ public class ProductService {
 		return prodRepository.findAll();
 	}
 
-	public Optional<Product> getProduct(String productId) {
-		return prodRepository.findById(Long.valueOf(productId));
+	public Optional<Product> getProduct(Long productId) {
+		return prodRepository.findById(productId);
 	}
 
-	public void saveProduct(Product prod) {
-		prodRepository.save(prod);
+	public Product saveProduct(Product prod) {
+		return prodRepository.save(prod);
 	}
 
-	public void updateProduct(Product prod) {
-		prodRepository.save(prod);
+	public Product updateProduct(Product prod) {
+		return prodRepository.save(prod);
 
 	}
 
-	public void deleteProduct(String prodId) {
+	public void deleteProduct(Long prodId) {
 		prodRepository.deleteById(Long.valueOf(prodId));
 	}
 }

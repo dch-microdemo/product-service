@@ -7,10 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,13 +40,13 @@ public class ProductServiceController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProductServiceController.class);
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping(path = "/")
 	public Iterable<Product> getProducts() {
 		return prodService.findAll();
 	}
 
-	@RequestMapping(value = "/{productId}", method = RequestMethod.GET)
-	public ResponseEntity<Product> getProduct(@PathVariable("productId") String productId) {
+	@GetMapping(path = "/{productId}")
+	public ResponseEntity<Product> getProduct(@PathVariable("productId") Long productId) {
 		logger.debug("Looking up data for prod: {}", productId);
 
 		Optional<Product> org = prodService.getProduct(productId);
@@ -54,21 +57,22 @@ public class ProductServiceController {
 
 	}
 
-	@RequestMapping(value = "/{productId}", consumes = "application/json", method = RequestMethod.PUT)
-	public void updateProduct(@PathVariable("productId") String prodId, @RequestBody Product prod) {
-		prodService.updateProduct(prod);
+	@PutMapping(path = "/{productId}", consumes = "application/json")
+	public Product updateProduct(@PathVariable("productId") Long prodId, @RequestBody Product prod) {
+		prod.setId(prodId);
+		return prodService.updateProduct(prod);
 
 	}
 
-	@RequestMapping(value = "/", consumes = "application/json", method = RequestMethod.POST)
+	@PostMapping(path = "/", consumes = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void saveProduct(@RequestBody Product prod) {
-		prodService.saveProduct(prod);
+	public Product saveProduct(@RequestBody Product prod) {
+		return prodService.saveProduct(prod);
 	}
 
-	@RequestMapping(value = "/{productId}", method = RequestMethod.DELETE)
+	@DeleteMapping(path = "/{productId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deleteProduct(@PathVariable("productId") String prodId) {
+	public void deleteProduct(@PathVariable("productId") Long prodId) {
 		prodService.deleteProduct(prodId);
 
 	}
