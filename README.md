@@ -2,15 +2,20 @@
 ### Plugins para Eclipse (opcional):
 Para Jacoco:
 https://www.eclemma.org/
+
 Para SonarLint, buscarlo en el Eclipse Marketplace
 ### Ejecucion:
 Ejecucion de tests que incluyen la cobertura con Jacoco:
+
 mvn clean test
+
 Ejecucion de Sonar:
+
 mvn sonar:sonar
 
 ### Extras:
 DevTools: Acceder a http://localhost:8082/h2-console/ para ver consola de base en memoria
+
 Actuator: Ver Apis de Acturator: http://localhost:8082/actuator
 
 ### Reference Documentation
