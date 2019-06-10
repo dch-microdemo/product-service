@@ -1,20 +1,23 @@
-# Getting Started
-git init
-git remote add origin https://github.com/dch-microdemo/organization-service.git
-git add .
-git commit -m "Primera Subida"
-git push -u origin master
-Ejecucion de tests con Jacoco:
+# Microservicio con Jacoco y Sonar
+### Plugins para Eclipse (opcional):
+Para Jacoco:
+https://www.eclemma.org/
+Para SonarLint, buscarlo en el Eclipse Marketplace
+### Ejecucion:
+Ejecucion de tests que incluyen la cobertura con Jacoco:
 mvn clean test
 Ejecucion de Sonar:
 mvn sonar:sonar
-https://www.baeldung.com/sonar-qube
+
+### Extras:
+DevTools: Acceder a http://localhost:8082/h2-console/ para ver consola de base en memoria
+Actuator: Ver Apis de Acturator: http://localhost:8082/actuator
 
 ### Reference Documentation
 For further reference, please consider the following sections:
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-
+* https://www.baeldung.com/sonar-qube
 ### Guides
 The following guides illustrate how to use some features concretely:
 
