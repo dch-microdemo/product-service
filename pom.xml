@@ -37,6 +37,11 @@
 			<artifactId>opentracing-spring-jaeger-cloud-starter</artifactId>
 			<version>2.0.0</version>
 		</dependency>
+		<!-- Micrometer Prometheus registry -->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
