@@ -13,10 +13,31 @@ Ejecucion de Sonar:
 
 mvn sonar:sonar
 
+https://reflectoring.io/unit-testing-spring-boot/
+
+https://howtodoinjava.com/spring-boot2/spring-boot-mockmvc-example/
+
+https://memorynotfound.com/unit-test-spring-mvc-rest-service-junit-mockito/
+
 ### Extras:
 DevTools: Acceder a http://localhost:8082/h2-console/ para ver consola de base en memoria
 
 Actuator: Ver Apis de Acturator: http://localhost:8082/actuator
+
+Prometheus: Ver API: http://localhost:8082/actuator/prometheus
+
+Levantar Prometheus y Graphana:
+
+docker run -p 9090:9090 -v /c/Users/cha14309/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+
+ docker run -d --name=grafana -p 3000:3000 grafana/grafana
+ 
+ https://www.callicoder.com/spring-boot-actuator-metrics-monitoring-dashboard-prometheus-grafana/
+ 
+ http://micrometer.io/docs/registry/prometheus
+ 
+ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics-export-prometheus
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:
