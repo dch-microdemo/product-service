@@ -19,6 +19,18 @@ https://howtodoinjava.com/spring-boot2/spring-boot-mockmvc-example/
 
 https://memorynotfound.com/unit-test-spring-mvc-rest-service-junit-mockito/
 
+### Spring Profiles:
+
+.\mvnw package -DskipTests
+
+Profile Default:
+
+java -jar target/product-service-0.0.1-SNAPSHOT.jar
+
+Profile dev:
+
+java -jar target/product-service-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+
 ### Extras:
 DevTools: Acceder a http://localhost:8082/h2-console/ para ver consola de base en memoria
 

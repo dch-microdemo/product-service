@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: productservice
+
+#Setting the logging levels for the service
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.diego: DEBUG
+server:
+  port: 8083
+opentracing:
+  jaeger:
+    udp-sender:
+      host: 192.168.99.100
+      port: 6831
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus 
