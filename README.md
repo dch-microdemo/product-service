@@ -50,9 +50,43 @@ docker run -p 9090:9090 -v /c/Users/cha14309/prometheus.yml:/etc/prometheus/prom
  
  https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics-export-prometheus
 
+Kubernetes Horizonthal Pod Autoescaler:
+
+minikube start
+
+minikube addons enable heapster
+
+Esperar algunos minutos y:
+
+kubectl top node
+
+kubectl top pod --all-namespaces
+
+Ver Grafana en un browser:
+
+minikube service monitoring-grafana -n kube-system
+ 
+& minikube docker-env | Invoke-Expression
+
+mvn clean install
+
+docker build -t diegochavezcarro/product-app:1.0.0 .
+
+kubectl create -f .\product-app-k8s-template.yaml
+
+kubectl create -f .\product-hpa.yaml
+
+Ir viendo que pasa:
+
+kubectl get hpa,deployment
+
+kubectl run -it --rm --restart=Never prueba --image=busybox -- sh -c "wget -O - -q http://product-service:8082"
 
 ### Reference Documentation
 For further reference, please consider the following sections:
+
+https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+https://spotinst.com/blog/collecting-kubernetes-pod-metrics-heapster-is-dead/
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * https://www.baeldung.com/sonar-qube
