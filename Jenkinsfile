@@ -1,5 +1,5 @@
 pipeline {
-    agent { any }
+    agent any 
     stages {
         stage('build win bat') {
             steps {
