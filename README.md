@@ -80,7 +80,38 @@ Ir viendo que pasa:
 
 kubectl get hpa,deployment
 
-kubectl run -it --rm --restart=Never prueba --image=busybox -- sh -c "wget -O - -q http://product-service:8082"
+No anduvo.
+
+kubectl run -it --rm --restart=Never prueba --image=busybox -- sh -c "wget -O - -q http://product-service/products/:8082"
+
+Probar metrics-server:
+
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+
+kubectl apply -f metrics-server/deploy/1.8+/
+
+https://github.com/kubernetes-incubator/metrics-server/issues/97
+
+https://stackoverflow.com/questions/52694238/kubectl-top-node-error-metrics-not-available-yet-using-metrics-server-as-he?rq=1
+
+Cambiar:
+
+ kubectl apply -f .\metrics-server\deploy\1.8+\metrics-server-deployment.yaml
+
+Probar si se instalo:
+
+ kubectl top node
+
+ kubectl get hpa,deployment
+
+ kubectl describe hpa
+
+Se vera como escala hacia abajo
+
+Para escalar hacia arriba:
+
+kubectl run -it --rm --restart=Never loadgenerator --image=busybox -- sh -c "while true; do wget -O - -q http://product-service:8082/products/; done"
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:

@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: product-service
 spec:
+  type: NodePort
   selector:
     app: product-app
   ports:
   - port: 8082
+    nodePort: 30001
 
 ---
 apiVersion: apps/v1
