@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build win bat') {
             steps {
-                bat 'docker version'
+                sh 'docker version'
             }
         }
     }
