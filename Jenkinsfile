@@ -26,5 +26,11 @@ pipeline {
                 powershell 'docker build -t diegochavezcarro/product-app:1.0.0 .'
             }
         }
+        stage('deploy k8s and hpa') {
+            steps {
+                powershell 'kubectl create -f .\product-app-k8s-template.yaml'
+                powershell 'kubectl create -f .\product-hpa.yaml'
+            }
+        }        
     }
 }
