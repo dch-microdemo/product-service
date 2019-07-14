@@ -113,6 +113,29 @@ Para escalar hacia arriba:
 kubectl run -it --rm --restart=Never loadgenerator --image=busybox -- sh -c "while true; do wget -O - -q http://product-service:8082/products/; done"
 
 
+# Jenkins
+
+Crear multibranc pipeline, en el codigo ingresar la credencial de github con user y pass 
+y elegir el repo
+
+Para los web kooks, aunque no va a andar pq el jenkins es local:
+
+1. Add a 'Secret Text' global credential. The secret should be your access
+ token from GitHub that probably has at least write access to repos 
+ (I didn't investigate which roles are required). ID and description 
+ doesn't matter. This must be 'Secret Text' for the next pieces to work 
+ right
+2.Go to Manage Jenkins -> Configure System and down to 'GitHub Servers'
+3. Hit 'Add GitHub Server'
+Name - doesn't matter
+API URL - since I don't have a private GitHub Enterprise install (just private repos on github.com) I used the default of https://api.github.com
+Credentials - the 'Secret Text' credential from earlier (this dropdown only pulls 'Secret Text' credentials)
+Manage Hooks - checked
+4. Hit 'Test Connection' to make sure everything is kosher
+5. Go to your organization and 'Scan Organization Now' on the left
+
+Ver: https://issues.jenkins-ci.org/browse/JENKINS-49332
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
