@@ -28,8 +28,8 @@ pipeline {
         }
         stage('deploy k8s and hpa') {
             steps {
-                powershell 'kubectl create -f .\product-app-k8s-template.yaml'
-                powershell 'kubectl create -f .\product-hpa.yaml'
+                powershell 'kubectl create -f product-app-k8s-template.yaml'
+                powershell 'kubectl create -f product-hpa.yaml'
             }
         }        
     }
