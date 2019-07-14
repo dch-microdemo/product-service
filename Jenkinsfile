@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('probar docker') {
             steps {                
-                bat '& minikube docker-env | Invoke-Expression'
+                bat '@FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i'
             }
         }
     }
