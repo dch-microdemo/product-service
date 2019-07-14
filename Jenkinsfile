@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('build win bat 2') {
+        stage('probar docker') {
             steps {
                 sh 'docker version'
             }
