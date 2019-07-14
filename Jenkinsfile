@@ -4,7 +4,6 @@ pipeline {
         stage('probar docker') {
             steps {                
                 sh '& minikube docker-env | Invoke-Expression'
-                sh 'docker version'
             }
         }
     }
