@@ -21,6 +21,11 @@ pipeline {
                 }
             }
         }
+        stage('send to sonar') {
+            steps {
+                powershell 'mvn sonar:sonar'
+            }
+        }
         stage('create image') {
             steps {
                 powershell 'docker build -t diegochavezcarro/product-app:1.0.0 .'

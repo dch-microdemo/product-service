@@ -11,7 +11,11 @@ mvn clean test
 
 Ejecucion de Sonar:
 
+PS C:\tools\sonarqube-6.7.5\bin\windows-x86-64> .\StartSonar.bat
+
 mvn sonar:sonar
+
+Ver en localhost:9000
 
 https://reflectoring.io/unit-testing-spring-boot/
 
