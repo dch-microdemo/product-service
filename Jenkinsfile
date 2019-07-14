@@ -4,6 +4,7 @@ pipeline {
         stage('probar docker') {
             steps {                
                 powershell '& minikube docker-env | Invoke-Expression'
+                powershell 'docker version'
             }
         }
     }
