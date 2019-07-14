@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('probar docker') {
             steps {                
-                bat '& minikube docker-env | Invoke-Expression'
+                sh '& minikube docker-env | Invoke-Expression'
             }
         }
     }
