@@ -26,6 +26,11 @@ pipeline {
                 powershell 'mvn sonar:sonar'
             }
         }
+        stage('security check') {
+            steps {
+                powershell 'mvn verify'
+            }
+        }
         stage('create image') {
             steps {
                 powershell 'docker build -t diegochavezcarro/product-app:1.0.0 .'
