@@ -2,7 +2,8 @@ pipeline {
     agent any
     stages {
         stage('probar docker') {
-            steps {
+            steps {                
+                sh '& minikube docker-env | Invoke-Expression'
                 sh 'docker version'
             }
         }
