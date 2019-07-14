@@ -21,5 +21,10 @@ pipeline {
                 }
             }
         }
+        stage('create image') {
+            steps {
+                powershell 'docker build -t diegochavezcarro/product-app:1.0.0 .'
+            }
+        }
     }
 }
