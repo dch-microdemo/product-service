@@ -1,10 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage('probar docker') {
+        stage('enviroment settings') {
             steps {                
                 powershell '& minikube docker-env | Invoke-Expression'
-                powershell 'docker version'
+            }
+        }
+        stage('Build') {
+            steps {
+                powershell 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Test') { 
+            steps {
+                powershell 'mvn test' 
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml' 
+                }
             }
         }
     }
