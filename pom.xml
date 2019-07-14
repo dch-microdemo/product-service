@@ -17,7 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<dependency.check.report.dir>${project.build.directory}/dependency-check</dependency.check.report.dir>
+		<dependency.check.report.dir>${project.build.directory}</dependency.check.report.dir>
 		<sonar.host.url>http://localhost:9000/</sonar.host.url>
         <sonar.dependencyCheck.reportPath>${dependency.check.report.dir}/dependency-check-report.xml</sonar.dependencyCheck.reportPath>
         <sonar.dependencyCheck.htmlReportPath>${dependency.check.report.dir}/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
