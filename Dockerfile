@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk/openjdk13:alpine
 
 # Create app directory
 RUN mkdir -p /usr/opt/service

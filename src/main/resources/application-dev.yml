@@ -9,11 +9,11 @@ logging:
     org.springframework.web: WARN
     com.diego: DEBUG
 server:
-  port: 8083
+  port: 8082
 opentracing:
   jaeger:
     udp-sender:
-      host: 192.168.99.100
+      host: jaeger
       port: 6831
 management:
   endpoints:

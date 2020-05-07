@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: product-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: product-app
   ports:
   - port: 8082
-    nodePort: 30001
+    targetPort: 8082
 
 ---
 apiVersion: apps/v1
