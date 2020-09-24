@@ -102,6 +102,23 @@ Cambiar:
 
  kubectl apply -f .\metrics-server\deploy\1.8+\metrics-server-deployment.yaml
 
+### Update 24 septiembre 2020
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml
+
+minikube addons disable metrics-server
+
+kubectl edit deploy -n kube-system metrics-server
+
+Agregar a los arqs ya existentes del container del metrics server:
+
+ args:
+ - --kubelet-insecure-tls
+ - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+
+###
+
+
 Probar si se instalo:
 
  kubectl top node
