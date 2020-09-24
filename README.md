@@ -106,8 +106,6 @@ Cambiar:
 
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml
 
-minikube addons disable metrics-server
-
 kubectl edit deploy -n kube-system metrics-server
 
 Agregar a los arqs ya existentes del container del metrics server:
